@@ -1,0 +1,37 @@
+server:
+  port: 8080
+  servlet:
+    contextPath: "/api/v1"
+spring:
+  application:
+    name: "Cars"
+  devtools:
+    add-properties: false
+  h2:
+    console:
+      enabled: true
+      path: "/h2"
+  profiles:
+    include: null
+  datasource:
+    url: "localhost"
+    username: "postgres"
+    password: "admin"
+    driverClassName: "org.postgresql.Driver"
+    schema: "cars"
+    dbname: "cars?currentSchema=cars?useSSL=false"
+    port: "5432"
+  jpa:
+    databasePlatform: "org.hibernate.dialect.PostgreSQLDialect"
+    generate-ddl: true
+    hibernate:
+      ddl-auto: "create-drop"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health"
+  endpoint:
+    health:
+      probes:
+        enabled: true
